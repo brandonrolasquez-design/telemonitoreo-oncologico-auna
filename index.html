@@ -86,25 +86,25 @@ root.className="status";
 root.replaceChildren();
 const heading=document.createElement("h3");heading.textContent=doctorModules[index][0];root.appendChild(heading);
 const intro=document.createElement("p");intro.className="muted";intro.textContent=doctorModules[index][1];root.appendChild(intro);
-const warning=document.createElement("div");warning.className="notice";warning.style.marginTop="12px";warning.textContent="FORMULARIO DE DEMOSTRACIÓN: usa solo datos ficticios. La información se conserva únicamente en esta sesión y no se envía a Supabase.";root.appendChild(warning);
-const form=document.createElement("form");form.className="grid";form.style.marginTop="12px";form.style.alignItems="start";
+const warning=document.createElement("div");warning.className="notice";warning.style.marginTop="12px";warning.textContent="FORMULARIO ACTIVO DE DEMOSTRACIÓN. Diligencia los campos y pulsa Guardar borrador. Usa exclusivamente datos ficticios: no se envía información a Supabase ni constituye una historia clínica asistencial.";root.appendChild(warning);
+const form=document.createElement("form");form.className="grid";form.style.display="grid";form.style.gridTemplateColumns="repeat(auto-fit,minmax(240px,1fr))";form.style.gap="14px";form.style.marginTop="16px";form.style.padding="18px";form.style.background="#f8fafc";form.style.border="1px solid #d7e0ea";form.style.borderRadius="12px";form.style.alignItems="start";
 fieldsLoop: for(const f of moduleFields[index]){
  const wrap=document.createElement("div");wrap.style.minWidth="0";
- const label=document.createElement("label");label.textContent=f.label;
+ const label=document.createElement("label");label.textContent=f.label;label.style.display="block";label.style.fontWeight="600";label.style.marginBottom="6px";
  let el;
  if(f.type==="textarea"){el=document.createElement("textarea");el.rows=3;}
  else if(f.type==="select"){el=document.createElement("select");for(const opt of f.options){const o=document.createElement("option");o.value=opt;o.textContent=opt;el.appendChild(o);}}
  else {el=document.createElement("input");el.type=f.type;}
  el.name=f.name;el.style.width="100%";el.style.border="1px solid #bac8d7";el.style.borderRadius="7px";el.style.padding="10px";el.style.font="inherit";el.style.background="#fff";
- if(f.name==="codigo"){el.placeholder="Ej. DEMO-001";el.required=true;}
+ if(f.name==="codigo"){el.placeholder="Ej. DEMO-001";el.required=true;} if(f.name==="consentimiento"){el.required=true;} if(f.name==="fecha"){el.required=false;}
  wrap.append(label,el);form.appendChild(wrap);
 }
 const actions=document.createElement("div");actions.className="row";actions.style.gridColumn="1/-1";actions.style.marginTop="8px";
 const save=document.createElement("button");save.type="submit";save.className="btn";save.textContent="Guardar borrador de demostración";
 const reset=document.createElement("button");reset.type="reset";reset.className="btn secondary";reset.textContent="Limpiar campos";
 actions.append(save,reset);form.appendChild(actions);
-const status=document.createElement("div");status.className="status hidden";status.style.gridColumn="1/-1";status.setAttribute("role","status");form.appendChild(status);
-form.addEventListener("submit",ev=>{ev.preventDefault();const data=Object.fromEntries(new FormData(form).entries());data.module=doctorModules[index][0];data.savedAt=new Date().toISOString();demoRecords.push(data);status.className="status success";status.textContent="Borrador guardado en esta sesión. No se envió a Supabase y se perderá al recargar o cerrar sesión.";});
+const status=document.createElement("div");status.className="status hidden";status.style.gridColumn="1/-1";status.style.padding="12px";status.style.borderRadius="8px";status.setAttribute("role","status");form.appendChild(status);
+form.addEventListener("submit",ev=>{ev.preventDefault();if(index===0){const consent=form.elements["consentimiento"]?.value;if(consent!=="Aceptado"){status.className="status error";status.textContent="Control de seguridad: para continuar con la ruta remota el consentimiento debe estar Aceptado. Si se rechaza o queda pendiente, no continúes.";return;}}const data=Object.fromEntries(new FormData(form).entries());data.module=doctorModules[index][0];data.savedAt=new Date().toISOString();demoRecords.push(data);status.className="status success";status.textContent="Borrador guardado correctamente en memoria temporal de esta sesión ("+demoRecords.length+" registro(s)). No se envió a Supabase y se perderá al recargar o cerrar sesión.";});
 root.appendChild(form);
 }
 function renderAdmin(){const metrics=[["Pacientes con seguimiento","Se calculará desde registros autorizados"],["Contactos completados","Por periodo seleccionado"],["Alertas pendientes","Por nivel y estado"],["Incidentes reportados","Cero reportes no significa cero riesgos"]];$("adminMetrics").innerHTML=metrics.map(x=>'<div class="metric"><b>—</b><strong>'+x[0]+'</strong><div class="muted">'+x[1]+'</div><div class="muted">Sin datos conectados</div></div>').join("");$("indicatorList").innerHTML=indicators.map(x=>'<div class="metric"><span class="muted">'+x[0]+'</span><strong style="display:block;color:#12365b;margin:6px 0">'+x[1]+'</strong><span class="muted">Frecuencia: '+x[2]+'</span><div class="status">Sin datos suficientes para graficar</div></div>').join("");}
