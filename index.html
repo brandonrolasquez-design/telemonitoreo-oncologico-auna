@@ -42,8 +42,8 @@ main{max-width:1200px;margin:24px auto;padding:0 16px}.card{background:#fff;bord
 <script>
 /* Configuración pendiente: usa únicamente URL del proyecto y clave publicable/anon de Supabase.
    Nunca pegues aquí service_role, contraseñas ni secretos. */
-const SUPABASE_URL = "PEGA_AQUI_LA_URL_DEL_PROYECTO";
-const SUPABASE_PUBLISHABLE_KEY = "PEGA_AQUI_LA_CLAVE_PUBLICABLE";
+const SUPABASE_URL = "https://vrsbwjpxyrxrhklamifs.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_qrx94nOADfGLbuHpHBFQcA_xbfAlESj";
 const ready = window.supabase && SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PEGA_AQUI") && !SUPABASE_PUBLISHABLE_KEY.includes("PEGA_AQUI");
 const sb = ready ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}) : null;
 const $ = id => document.getElementById(id);
