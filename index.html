@@ -3,14 +3,15 @@
 <style>
 :root{--navy:#12365b;--blue:#1769aa;--teal:#087e8b;--bg:#f3f6fa;--line:#d7e0ea;--text:#1f2937;--muted:#526273;--warn:#fff3cd;--danger:#fde8e7;--ok:#e1f5e9}*{box-sizing:border-box}body{margin:0;font:14px/1.45 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}header{background:linear-gradient(110deg,var(--navy),var(--blue));color:white;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}header h1{font-size:21px;margin:0}header p{margin:4px 0 0;color:#e5f2ff}.tag{border:1px solid #b8d8f5;border-radius:20px;padding:5px 10px;font-size:12px}.layout{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 90px)}nav{background:#fff;border-right:1px solid var(--line);padding:18px 12px}nav button{width:100%;border:0;background:transparent;text-align:left;padding:10px;border-radius:8px;color:#23415e;cursor:pointer;font-weight:600}nav button.active,nav button:hover{background:#e7f2fc;color:var(--blue)}main{padding:22px;max-width:1450px;width:100%;margin:auto}.notice{background:var(--warn);border:1px solid #e6c75b;border-radius:10px;padding:12px 15px;margin-bottom:18px}.summary{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:12px;margin-bottom:18px}.metric,.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:0 2px 8px #193b5810}.metric b{display:block;font-size:22px;color:var(--navy)}.metric span{color:var(--muted);font-size:12px}.panel{margin-bottom:16px}.panel h2{font-size:16px;color:var(--navy);margin:0 0 13px;border-bottom:1px solid var(--line);padding-bottom:8px}.grid{display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:12px}.grid.two{grid-template-columns:repeat(2,minmax(180px,1fr))}label{display:block;font-weight:600;font-size:12px;color:#344b62;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid #bac8d7;border-radius:6px;padding:9px;background:#fff;font:inherit;color:var(--text)}textarea{min-height:76px;resize:vertical}.full{grid-column:1/-1}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:7px;background:var(--blue);color:#fff;padding:9px 14px;cursor:pointer;font-weight:600}.btn.secondary{background:#e7eef5;color:#183c5e}.btn.danger{background:#a62828}.pill{display:inline-block;padding:3px 8px;border-radius:20px;font-size:12px;background:#e7eef5}.pill.ok{background:var(--ok)}.pill.warn{background:var(--warn)}.pill.red{background:var(--danger)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eef4f9;color:#254663}.hidden{display:none!important}.checkline{display:flex;gap:8px;align-items:center;font-weight:400}.checkline input{width:auto}.muted{color:var(--muted);font-size:12px}.alertrow{border-left:4px solid #d98c00;padding:10px;background:#fff8e8;margin:8px 0;border-radius:4px}.success{background:var(--ok);padding:10px;border-radius:7px;margin-top:10px}.footer{font-size:12px;color:var(--muted);padding:10px 2px} @media(max-width:850px){.layout{grid-template-columns:1fr}nav{display:flex;overflow:auto;border-right:0;border-bottom:1px solid var(--line)}nav button{min-width:170px}.summary{grid-template-columns:repeat(2,minmax(120px,1fr))}.grid,.grid.two{grid-template-columns:1fr}main{padding:12px}}
 
-/* Pantalla de inicio de sesión de demostración */
+.header-right{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}.user-box{display:flex;align-items:center;gap:9px;background:#ffffff18;border:1px solid #ffffff55;border-radius:12px;padding:7px 9px;max-width:100%}.user-avatar{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800}.user-details{display:flex;flex-direction:column;min-width:0}.user-details strong{font-size:12px;overflow-wrap:anywhere}.user-details span{font-size:11px;color:#e5f2ff}.logout-btn{border:1px solid #ffffffaa;border-radius:7px;background:#fff;color:var(--navy);padding:8px 10px;font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}.logout-btn:hover{background:#eaf2f9}
+\n/* Pantalla de inicio de sesión de demostración */
 .login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#eaf2f9,#f6f9fc)}
 .login-card{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 18px 50px #12365b20}
 .login-brand{display:flex;align-items:center;gap:14px;margin-bottom:22px}
 .login-logo{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;letter-spacing:.5px}
 .login-card h1{font-size:22px;color:var(--navy);margin:0}.login-card p{color:var(--muted);margin:5px 0 0}.login-card label{margin-top:16px}.login-card .btn{width:100%;margin-top:18px;padding:12px}.login-alert{font-size:12px;background:#fff3cd;border:1px solid #e6c75b;border-radius:8px;padding:10px;margin-top:16px;color:#5b4a13}.login-error{color:#a62828;font-size:13px;margin-top:10px}.login-foot{font-size:11px;color:var(--muted);text-align:center;margin-top:18px}
 #appShell{display:none}
-@media(max-width:500px){.login-card{padding:22px}.login-screen{padding:14px}}
+@media(max-width:500px){.login-card{padding:22px}.login-screen{padding:14px}.header-right{justify-content:flex-start}.user-box{flex-wrap:wrap}.tag{white-space:normal}}
 
 </style></head><body>
 <section id="loginScreen" class="login-screen" aria-label="Inicio de sesión">
@@ -31,7 +32,17 @@
   </div>
 </section>
 <div id="appShell">
-<header><div><h1>Instituto de Cancerología · Clínica Las Américas – AUNA</h1><p>Prototipo de historia clínica electrónica para seguimiento oncológico remoto</p></div><span class="tag">DEMO ACADÉMICA · NO CONECTADA A HCE REAL</span></header>
+<header>
+  <div><h1>Instituto de Cancerología · Clínica Las Américas – AUNA</h1><p>Prototipo de historia clínica electrónica para seguimiento oncológico remoto</p></div>
+  <div class="header-right">
+    <span class="tag">DEMO ACADÉMICA · NO CONECTADA A HCE REAL</span>
+    <div class="user-box" aria-label="Usuario conectado">
+      <div class="user-avatar" aria-hidden="true">U</div>
+      <div class="user-details"><strong id="activeUserLabel">Usuario</strong><span id="activeRoleLabel">Sesión de demostración</span></div>
+      <button type="button" id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
 <div class="layout"><nav aria-label="Módulos"><button class="active" data-tab="inicio">Resumen del seguimiento</button><button data-tab="privacidad">1. Consentimiento, privacidad y seguridad</button><button data-tab="paciente">2. Identificación y elegibilidad</button><button data-tab="contacto">3. Telemonitoreo / contacto</button><button data-tab="clinica">4. Registro clínico</button><button data-tab="alertas">5. Alertas y escalamiento</button><button data-tab="plan">6. Plan y trazabilidad</button></nav>
 <main><div class="notice"><b>Uso seguro:</b> prototipo navegable para validar campos y flujo. No ingresar datos reales, identificables ni información clínica de pacientes. No sustituye la HCE institucional ni está conectado a SAP, agenda, mensajería o sistemas asistenciales. Requiere validación clínica, jurídica, de seguridad, habilitación y tecnología antes de uso real.</div>
 <section id="inicio" class="tab"><div class="summary"><div class="metric"><b>25–35%</b><span>estimación de pacientes de zonas rurales/apartadas en el diagnóstico aportado</span></div><div class="metric"><b>32%</b><span>inasistencia general 2025 (no desagregada por procedencia)</span></div><div class="metric"><b>23%</b><span>cancelación general 2025 (no desagregada por procedencia)</span></div><div class="metric"><b>0</b><span>pacientes reales en este prototipo</span></div></div>
@@ -56,8 +67,19 @@ demoLoginForm.addEventListener("submit",function(event){
   const password=document.getElementById("loginPassword").value;
   if(!user || !password){document.getElementById("loginError").textContent="Ingresa usuario y contraseña para continuar.";return;}
   document.getElementById("loginError").textContent="";
+  document.getElementById("activeUserLabel").textContent="Usuario: "+user;
+  document.getElementById("activeRoleLabel").textContent="Sesión de demostración";
+  document.getElementById("user-avatar");
+  document.querySelector(".user-avatar").textContent=(user.charAt(0)||"U").toUpperCase();
   document.getElementById("loginScreen").style.display="none";
   document.getElementById("appShell").style.display="block";
+});
+document.getElementById("logoutBtn").addEventListener("click",function(){
+  document.getElementById("appShell").style.display="none";
+  document.getElementById("loginScreen").style.display="flex";
+  document.getElementById("loginPassword").value="";
+  document.getElementById("loginError").textContent="Has cerrado la sesión de demostración.";
+  document.getElementById("loginUser").focus();
 });
 document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tab').forEach(s=>s.classList.add('hidden'));document.getElementById(b.dataset.tab).classList.remove('hidden')}));
 function saveDemo(name){let cs=document.getElementById('consentStatus');if(cs && cs.value!=='aceptado' && name!=='Consentimiento y seguridad'){alert('Control de entrada: antes de continuar por la ruta remota debe registrarse consentimiento otorgado. Si se rechaza, detenga la ruta remota y ofrezca alternativa.');return;}let e=document.getElementById('saveResult');if(e)e.innerHTML='<div class="success">Vista de prueba validada: '+name+'. No se guardaron datos en servidor ni en historia clínica real.</div>';else alert('Vista de prueba validada: '+name+'. No se guardaron datos.');}
